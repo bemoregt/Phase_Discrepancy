@@ -1,46 +1,58 @@
-# Phase_Discrepancy
+# Fast Radon Transform Application
 
-Image subtraction using Fourier Phase Discrepancy technique. This application loads an image, splits it into two halves, and calculates the phase discrepancy between them using Fourier transform techniques.
+This Python application implements a Fast Radon Transform using FFT (Fast Fourier Transform) and the Fourier Slice Theorem. The Radon transform is commonly used in medical imaging (CT scans), geophysics, and various signal processing applications.
 
-## Overview
+## Features
 
-This Python application demonstrates phase-based image comparison using Fourier transforms. The program:
-1. Loads an image file and splits it into left and right halves
-2. Converts images to grayscale and applies Fourier transforms
-3. Extracts amplitude and phase information from each transform
-4. Creates complex values based on amplitude differences and phases
-5. Applies inverse Fourier transforms and multiplies the results
-6. Displays the resulting phase discrepancy visualization
+- Fast implementation of the Radon Transform using FFT techniques
+- Interactive GUI built with Tkinter
+- Real-time visualization with Matplotlib
+- Support for loading custom images or generating test patterns
+- Adjustable number of projection angles
 
-## Requirements
-- Python 3.x
-- OpenCV (cv2)
+## Technical Details
+
+The implementation uses the following approach:
+1. Applies padding and circular masking to the input image
+2. Performs 2D FFT on the prepared image
+3. Extracts slices from the Fourier domain using bilinear interpolation
+4. Applies inverse FFT to recover projections for each angle
+5. Assembles the projections into a sinogram
+
+The application leverages the Fourier Slice Theorem which states that the 1D Fourier transform of a projection at angle θ is equivalent to a slice at the same angle through the origin of the 2D Fourier transform of the original image.
+
+## Dependencies
+
 - NumPy
 - Matplotlib
+- SciPy
 - Tkinter
 - PIL (Pillow)
 
 ## Usage
-1. Run the application using `python main.py`
-2. Click "이미지 로드" to select an image
-3. Click "Phase Discrepancy" to process the image and see the results
 
-## Screenshots
+Run the application:
 
-![Screenshot](screenshot.png)
+```bash
+python radon_transform.py
+```
 
-## Result
+The interface provides options to:
+- Load custom images
+- Generate a test circle image
+- Adjust the number of projection angles
+- Execute the Radon transform
+- View both the original image and the resulting sinogram
 
-![Result](result.png)
+## Applications
 
-## How It Works
+The Radon transform is fundamental to:
+- Computed Tomography (CT) reconstruction
+- Pattern recognition
+- Feature extraction
+- Image registration
+- Motion detection
 
-The core algorithm works by:
-1. Converting input images to grayscale
-2. Computing the Fourier transform of each image
-3. Extracting phase and amplitude components
-4. Creating complex numbers using amplitude differences and original phases
-5. Computing inverse Fourier transforms
-6. Multiplying the magnitudes of the results to highlight differences
+## Note
 
-This technique is particularly useful for detecting subtle differences between two very similar images.
+For Korean users, the application includes font settings to properly display Korean text in the UI.
