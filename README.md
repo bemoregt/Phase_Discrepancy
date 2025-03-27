@@ -25,6 +25,10 @@ This Python application demonstrates phase-based image comparison using Fourier 
 2. Click "이미지 로드" to select an image
 3. Click "Phase Discrepancy" to process the image and see the results
 
+## Screenshots
+
+![Screenshot](screenshot.png)
+
 ## Result
 
 ![Result](result.png)
